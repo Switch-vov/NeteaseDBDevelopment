@@ -15,126 +15,142 @@
     <table id="11" parent="1" name="user" />
     <table id="12" parent="1" name="Product" />
     <table id="13" parent="1" name="transation" />
-    <column id="14" parent="6" name="id">
+    <table id="14" parent="1" name="userCourse" />
+    <column id="15" parent="6" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="15" parent="6" name="name">
+    <column id="16" parent="6" name="name">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="16" parent="6" name="number">
+    <column id="17" parent="6" name="number">
       <data-type>decimal(10)|0</data-type>
     </column>
-    <column id="17" parent="6" name="score">
+    <column id="18" parent="6" name="score">
       <data-type>float|0</data-type>
     </column>
-    <key id="18" parent="6" name="PRIMARY">
+    <key id="19" parent="6" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="19" parent="7" name="ID">
+    <column id="20" parent="7" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="20" parent="7" name="ProductName">
+    <column id="21" parent="7" name="ProductName">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="21" parent="7" name="Inventory">
+    <column id="22" parent="7" name="Inventory">
       <data-type>int(11)|0</data-type>
     </column>
-    <key id="22" parent="7" name="PRIMARY">
+    <key id="23" parent="7" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="23" parent="8" name="ID">
+    <column id="24" parent="8" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="24" parent="8" name="buyer">
+    <column id="25" parent="8" name="buyer">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="25" parent="8" name="ProductName">
+    <column id="26" parent="8" name="ProductName">
       <data-type>varchar(30)|0</data-type>
     </column>
-    <key id="26" parent="8" name="PRIMARY">
+    <key id="27" parent="8" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="27" parent="9" name="id">
+    <column id="28" parent="9" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="28" parent="9" name="teacherName">
+    <column id="29" parent="9" name="teacherName">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <key id="29" parent="9" name="PRIMARY">
+    <key id="30" parent="9" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="30" parent="10" name="id">
+    <column id="31" parent="10" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="31" parent="10" name="courseName">
+    <column id="32" parent="10" name="courseName">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="32" parent="10" name="teacher_id">
+    <column id="33" parent="10" name="teacher_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <key id="33" parent="10" name="PRIMARY">
+    <key id="34" parent="10" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="34" parent="11" name="ID">
+    <column id="35" parent="11" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="35" parent="11" name="userName">
+    <column id="36" parent="11" name="userName">
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="36" parent="11" name="tel">
+    <column id="37" parent="11" name="tel">
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="37" parent="11" name="PRIMARY">
+    <key id="38" parent="11" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="38" parent="12" name="ID">
+    <column id="39" parent="12" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="39" parent="12" name="productName">
+    <column id="40" parent="12" name="productName">
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="40" parent="12" name="catalog">
+    <column id="41" parent="12" name="catalog">
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="41" parent="12" name="PRIMARY">
+    <key id="42" parent="12" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="42" parent="13" name="ID">
+    <column id="43" parent="13" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="43" parent="13" name="userId">
+    <column id="44" parent="13" name="userId">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="44" parent="13" name="productId">
+    <column id="45" parent="13" name="productId">
       <data-type>int(11)|0</data-type>
     </column>
-    <key id="45" parent="13" name="PRIMARY">
+    <key id="46" parent="13" name="PRIMARY">
       <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="47" parent="14" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="48" parent="14" name="userName">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="49" parent="14" name="courseName">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="50" parent="14" name="PRIMARY">
+      <columns>id</columns>
       <primary>1</primary>
     </key>
   </database-model>
