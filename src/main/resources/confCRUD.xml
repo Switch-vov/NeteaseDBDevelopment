@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://
+mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置环境变量 -->
+    <environments default="development">
+        <!-- environment元素体中包含了事务管理和连接池的配置 -->
+        <environment id="development">
+            <!-- 事务管理器 -->
+            <!-- JDBC:使用JDBC的事务管理机制 -->
+            <!-- MANAGED:让Spring这样的容器来管理事务的生命周期-->
+            <transactionManager type="jdbc"/>
+            <!-- 配置数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/cloud_study?useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 配置映射器 -->
+    <mappers>
+        <mapper resource="mapper/userMapperMoreOp.xml"/>
+    </mappers>
+</configuration>

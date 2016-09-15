@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://
+mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射器 -->
+<!-- 命名空间:绑定接口,最好是使用完全限定名 -->
+<mapper namespace="com.pc.mybatiscomplex.UserOp">
+    <!-- 查询 -->
+    <!-- id:对应接口的方法名 -->
+    <!-- parameterType:参数类型 -->
+    <!-- resultMap:自定义结果集 -->
+    <!-- 该查询是根据职员id,查询该职员的基本信息及其选课的课程信息和对应的老师信息,采用的是左外连接的方式 -->
+    <select id="getUser" parameterType="integer" resultMap="UserMap">
+        SELECT
+        u.id AS userId,
+        userName,
+        courseName,
+        corp,
+        c.id AS courseId,
+        t.id AS teacherId,
+        teacherName
+        FROM user u LEFT OUTER JOIN UserCourse uc ON u.id = uc.user_id
+        LEFT OUTER JOIN course c ON c.id = uc.course_id
+        LEFT OUTER JOIN teacher t ON t.id = c.teacher_id
+        WHERE u.id = #{id};
+    </select>
+
+    <!-- 自定义结果集,id为UserMap -->
+    <!-- type:结果集类型 -->
+    <!-- 注意type采用的是昵称,而不是完全限定名 -->
+    <resultMap id="UserMap" type="User">
+        <!-- 通过构造器来构造User对象-->
+        <!-- 带有该参数列表的构造器,必须在Bean中存在 -->
+        <!-- MyBatis框架会按名自动注入 -->
+        <constructor>
+            <!-- idArg: 标记结果作为ID可以帮助提高整体效能,一般是标记主键-->
+            <idArg column="userId" javaType="Integer"/>
+            <!-- arg: 注入到构造方法的一个普通结果 -->
+            <arg column="userName" javaType="String"/>
+            <arg column="corp" javaType="String"/>
+        </constructor>
+
+        <!-- 集合,实现关系模型到对象模型的1对多的映射 -->
+        <!-- property:必须为其上层元素代表的对象的一个集合属性,并且名字必须一样 -->
+        <!-- ofType:集合中元素的类型 -->
+        <!-- PS:如果该元素添加javaType属性,其值将是集合类型,比如说ArrayList -->
+        <collection property="courses" ofType="Course">
+            <!-- id: 标记结果作为ID可以帮助提高整体效能,一般是标记主键-->
+            <id property="id" column="courseId"/>
+            <!-- result: 注入的一个普通结果 -->
+            <result property="courseName" column="courseName"/>
+
+            <!-- 关联,实现关系模型到对象模型的1对1的映射 -->
+            <!-- property:必须为其上层元素代表的对象的一个属性,并且名字必须一样 -->
+            <!-- javaType:属性类型 -->
+            <association property="teacher" javaType="Teacher">
+                <constructor>
+                    <idArg column="teacherId" javaType="Integer"/>
+                    <arg column="teacherName" javaType="String"/>
+                </constructor>
+            </association>
+        </collection>
+    </resultMap>
+</mapper>

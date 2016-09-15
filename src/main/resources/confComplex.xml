@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://
+mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置昵称 -->
+    <typeAliases>
+        <typeAlias type="com.pc.mybatiscomplex.User" alias="User"/>
+        <typeAlias type="com.pc.mybatiscomplex.Teacher" alias="Teacher"/>
+        <typeAlias type="com.pc.mybatiscomplex.Course" alias="Course"/>
+    </typeAliases>
+
+    <!-- 配置环境变量 -->
+    <environments default="development">
+        <!-- environment元素体中包含了事务管理和连接池的配置 -->
+        <environment id="development">
+            <!-- 事务管理器 -->
+            <!-- JDBC:使用JDBC的事务管理机制 -->
+            <!-- MANAGED:让Spring这样的容器来管理事务的生命周期-->
+            <transactionManager type="jdbc"/>
+            <!-- 配置数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/cloud_study?useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+                <property name="poolMaximumActiveConnections" value="50"/>
+                <property name="poolMaximumIdleConnections" value="50"/>
+                <property name="poolMaximumCheckoutTime" value="10000"/>
+                <property name="poolTimeToWait" value="60000"/>
+                <property name="poolPingEnabled" value="true"/>
+                <property name="poolPingQuery" value="select 1"/>
+                <property name="poolPingConnectionsNotUsedFor" value="25000000"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 配置映射器 -->
+    <mappers>
+        <mapper resource="mapper/userMapperComplex.xml"/>
+    </mappers>
+</configuration>

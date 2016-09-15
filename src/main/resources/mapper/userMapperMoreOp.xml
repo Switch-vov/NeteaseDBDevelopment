@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://
+mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.mybatiscrud.UserOp">
+    <!-- 插入一个用户,会自动填入自增id序号 -->
+    <insert id="addUser" parameterType="com.pc.mybatiscrud.User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(userName,corp) values(#{userName},#{corp})
+    </insert>
+
+    <!-- 通过id查询用户 -->
+    <select id="getUser" parameterType="integer" resultType="com.pc.mybatiscrud.User">
+        select id, userName, corp from user where id = #{id}
+    </select>
+
+    <!-- 更新用户 -->
+    <update id="updateUser" parameterType="com.pc.mybatiscrud.User">
+        update user set userName = #{userName}, corp = #{corp} where id = #{id}
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="com.pc.mybatiscrud.User">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
