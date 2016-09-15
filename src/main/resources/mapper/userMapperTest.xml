@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://
+mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc.mybatistest.Op">
+    <!-- 获取用户 -->
+    <select id="getUser" parameterType="integer" resultMap="userMap">
+        SELECT
+            u.id AS userId,
+            userName,
+            tel,
+            productId
+        FROM user u LEFT JOIN transation t ON u.id = t.userId
+        WHERE u.id = #{id};
+    </select>
+
+    <!-- 用户结果集 -->
+    <resultMap id="userMap" type="User">
+        <!-- id: 标记结果作为ID可以帮助提高整体效能,一般是标记主键-->
+        <id property="id" column="userId"/>
+        <!-- result: 注入的一个普通结果 -->
+        <result property="userName" column="userName"/>
+        <result property="tel" column="tel"/>
+        <!-- 集合,实现关系模型到对象模型的1对多的映射 -->
+        <!-- property:必须为其上层元素代表的对象的一个集合属性,并且名字必须一样 -->
+        <!-- ofType:集合中元素的类型 -->
+        <!-- javaType:集合类型 -->
+        <collection property="products" ofType="Integer" javaType="ArrayList">
+            <id column="productId" property="products"/>
+        </collection>
+    </resultMap>
+
+    <!-- 获取商品 -->
+    <select id="getProduct" parameterType="integer" resultType="Product">
+        SELECT
+            id,
+            productName,
+            catalog
+        FROM product p
+        WHERE p.id = #{id};
+    </select>
+
+</mapper>
