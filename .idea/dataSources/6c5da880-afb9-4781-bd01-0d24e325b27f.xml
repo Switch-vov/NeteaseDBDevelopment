@@ -91,21 +91,20 @@
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="35" parent="11" name="ID">
+    <column id="35" parent="11" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
     <column id="36" parent="11" name="userName">
       <mandatory>1</mandatory>
-      <data-type>varchar(20)|0</data-type>
+      <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="37" parent="11" name="tel">
-      <mandatory>1</mandatory>
-      <data-type>varchar(20)|0</data-type>
+    <column id="37" parent="11" name="corp">
+      <data-type>varchar(100)|0</data-type>
     </column>
     <key id="38" parent="11" name="PRIMARY">
-      <columns>ID</columns>
+      <columns>id</columns>
       <primary>1</primary>
     </key>
     <column id="39" parent="12" name="ID">
